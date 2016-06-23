@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <title>My Little Blue Book</title>
+      <title>My Address Book</title>
       <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
     <div id="wrapper">
         <header>
-            <h1>My Little Blue Book</h1>
+            <h1>My Address Book</h1>
         </header>
         <div>
             <form>
@@ -32,14 +32,26 @@
                 <label>ZIP/Postal Code:
                     <input type="text" name="postalcode">
                 </label>
+                <label>Country:
+                    <input type="text" name="country">
+                </label>
                 <label>Telephone:
                     <input type="number" name="telephone">
                 </label>
                 <label>Email:
                     <input type="email" name="emailaddress">
                 </label>
+                <button>Create Contact</button>
             </form>
         </div>
+        <section id="contactssection">
+            <h1>My Contacts</h1>
+            <ul id="contactslist">
+            </ul>
+        </section>
+        <section id="contactdetails">
+            <h1>Contact Details</h1>
+        </section>
     </div>
 </body>
 </html>
