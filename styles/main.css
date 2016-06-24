@@ -8,7 +8,18 @@
     text-align: center;
 }
 
+#contactdetails {
+    display: none;
+}
 
+.contact {
+    cursor: pointer;
+
+}
+
+.contact:hover {
+    text-decoration: underline;
+}
 
 
 
