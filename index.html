@@ -32,42 +32,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="addressline1">Address:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="addressline1">
-                                </div>
-                            </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" for="addressline2"></label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="addressline2">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="city">City:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="city">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="stateregion">State/Province/Region:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="stateregion">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="postalcode">ZIP/Postal Code:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="postalcode">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="country">Country:</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="country">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label col-sm-2" for="telephone">Telephone:</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="telephone">
@@ -80,9 +44,55 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button id="addcontact" class="btn btn-primary col-sm-2">Create Contact</button>
+                            <!-- address form section -->    
+                            <div id="addresses">
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="addressline1">Address:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="addressline1">
+                                    </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="addressline2"></label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="addressline2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="city">City:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="city">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="stateregion">State/Province/Region:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="stateregion">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="postalcode">ZIP/Postal Code:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="postalcode">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="country">Country:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="country">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                                
+                                <span class="col-sm-offset-2 col-sm-10">
+                                    <button id="addcontact" class="btn btn-primary col-sm-2">Create Contact</button>
+                                </span>
+                                <span class="col-sm-offset-2 col-sm-10">
+                                    <button id="addanotheraddress" class="btn btn-secondary col-sm-2">Add Another Address</button>
+                                </span>
+                                
                             </div>
             </form>
         </div>        
@@ -93,14 +103,18 @@
                     <h2></h2>
                     <p>First Name: <span id="detail-firstname"></span></p>
                     <p>Last Name: <span id="detail-lastname"></span></p>
-                    <p>Address Line 1: <span id="detail-addressline1"></span></p>
-                    <p>Address Line 2: <span id="detail-addressline2"></span></p>
-                    <p>City: <span id="detail-city"></span></p>
-                    <p>State/Provine/Region: <span id="detail-state-region"></span></p>
-                    <p>Postal Code: <span id="detail-postal-code"></span></p>
-                    <p>Country: <span id="detail-country"></span></p>
                     <p>Telephone: <span id="detail-telephone"></span></p>
                     <p>Email: <span id="detail-email"></span></p>
+                    <h3>Addresses</h3>
+                    <ul id="chicken">
+                        <!-- <p>Address Line 1: <span id="detail-addressline1"></span></p>
+                        <p>Address Line 2: <span id="detail-addressline2"></span></p>
+                        <p>City: <span id="detail-city"></span></p>
+                        <p>State/Provine/Region: <span id="detail-state-region"></span></p>
+                        <p>Postal Code: <span id="detail-postal-code"></span></p>
+                        <p>Country: <span id="detail-country"></span></p>
+                        -->
+                    </ul>
                 </section>
             </div>
             <div class="col-lg-6">
