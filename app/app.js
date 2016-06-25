@@ -4,9 +4,9 @@
 function Contact(firstname, lastname, telephone, emailaddress) {
     this.firstName = firstname;
     this.lastName = lastname;
-    this.addresses = [];
     this.telephone = telephone;
     this.emailAddress = emailaddress;
+    this.addresses = [];
 }
 
 //an object constructor for an address
@@ -24,48 +24,52 @@ Contact.prototype.fullName = function() {
     return this.firstName + " " + this.lastName;
 }
 
+Address.prototype.fullAddress = function() {
+    return this.addressLine1 + ", " + this.city + ", " + this.stateRegion;
+}
+
 
 $(document).ready(function() {
     // on clicking add another address button append a set of address forms
     $("#addanotheraddress").click(function(event){
         event.preventDefault();
-        $("#addresses").append(
-            "<div id='new-addresses'>" + 
+        $("#new-addresses").append(
+            "<div class='new-address'>" + 
                 "<hr>" +
                 "<div class='form-group'>" +
-                "<label class='control-label col-sm-2' for='addressline1'>Address:</label>" +
+                "<label class='control-label col-sm-2' for='new-addressline1'>Address:</label>" +
                 "<div class='col-sm-10'>" +
-                    "<input type='text' class='form-control' id='addressline1'>" +
+                    "<input type='text' class='form-control new-addressline1'>" +
                 "</div>" +
             "</div>" +
             "<div class='form-group'>" +
-                "<label class='control-label col-sm-2' for='addressline2'></label>" +
+                "<label class='control-label col-sm-2' for='new-addressline2'></label>" +
                 "<div class='col-sm-10'>" +
-                    "<input type='text' class='form-control' id='addressline2'>" +
+                    "<input type='text' class='form-control new-addressline2'>" +
                 "</div>" +
             "</div>" +
             "<div class='form-group'>" +
-                "<label class='control-label col-sm-2' for='city'>City:</label>" +
+                "<label class='control-label col-sm-2' for='new-city'>City:</label>" +
                 "<div class='col-sm-10'>" +
-                    "<input type='text' class='form-control' id='city'>" +
+                    "<input type='text' class='form-control new-city'>" +
                 "</div>" +
             "</div>" +
             "<div class='form-group'>" +
-                "<label class='control-label col-sm-2' for='stateregion'>State/Province/Region:</label>" +
+                "<label class='control-label col-sm-2' for='new-stateregion'>State/Province/Region:</label>" +
                 "<div class='col-sm-10'>" +
-                    "<input type='text' class='form-control' id='stateregion'>" +
+                    "<input type='text' class='form-control new-stateregion'>" +
                 "</div>" +
             "</div>" +
             "<div class='form-group'>" +
-                "<label class='control-label col-sm-2' for='postalcode'>ZIP/Postal Code:</label>" +
+                "<label class='control-label col-sm-2' for='new-postalcode'>ZIP/Postal Code:</label>" +
                 "<div class='col-sm-10'>" +
-                    "<input type='text' class='form-control' id='postalcode'>" +
+                    "<input type='text' class='form-control new-postalcode'>" +
                 "</div>" +
             "</div>" +
             "<div class='form-group'>" +
-                "<label class='control-label col-sm-2' for='country'>Country:</label>" +
+                "<label class='control-label col-sm-2' for='new-country'>Country:</label>" +
                 "<div class='col-sm-10'>" +
-                    "<input type='text' class='form-control' id='country'>" +
+                    "<input type='text' class='form-control new-country'>" +
                 "</div>" +
             "</div>");
     });
@@ -88,13 +92,13 @@ $(document).ready(function() {
         }else {
             
             //for each new address div define these variables for the given values
-            $("#new-addresses").each(function() {
-                var submittedAddressLine1 = $("#addressline1").val();
-                var submittedAddressLine2 = $("#addressline2").val();
-                var submittedCity = $("#city").val();
-                var submittedStateRegion = $("#stateregion").val();
-                var submittedPostalCode = $("#postalcode").val();
-                var submittedCountry = $("#country").val();
+            $(".new-address").each(function() {
+                var submittedAddressLine1 = $(this).find(".new-addressline1").val();
+                var submittedAddressLine2 = $(this).find(".new-addressline2").val();
+                var submittedCity = $(this).find(".new-city").val();
+                var submittedStateRegion = $(this).find(".new-stateregion").val();
+                var submittedPostalCode = $(this).find(".new-postalcode").val();
+                var submittedCountry = $(this).find(".new-country").val();
                 //create new address object with values
                 var newAddress = new Address(submittedAddressLine1, submittedAddressLine2, submittedCity, submittedStateRegion, submittedPostalCode, submittedCountry);
                 //push the new address to the addresses array
@@ -112,7 +116,7 @@ $(document).ready(function() {
                 $("#detail-lastname").text(newContact.lastName);
                 $("#moreaddresses").text("");
                 newContact.addresses.forEach(function(address) {
-                    $("#moreaddresses").append("<li>" + address.addressline1 + ", " + address.addressline2 , "</li>");
+                    $("#moreaddresses").append("<li>" + address.fullAddress() + "</li>");
                 });
                 $("#detail-telephone").text(newContact.telephone);
                 $("#detail-email").text(newContact.emailAddress);
@@ -121,14 +125,15 @@ $(document).ready(function() {
             //clear form inputs
             $("#firstname").val("");
             $("#lastname").val("");
-            $("#addressline1").val("");
-            $("#addressline2").val("");
-            $("#city").val("");
-            $("#stateregion").val("");
-            $("#postalcode").val("");
-            $("#country").val("");
+            $(".new-addressline1").val("");
+            $(".new-addressline2").val("");
+            $(".new-city").val("");
+            $(".new-stateregion").val("");
+            $(".new-postalcode").val("");
+            $(".new-country").val("");
             $("#telephone").val("");
             $("#emailaddress").val("");
+            $(".new-addresses").remove();
         }
 
     });
