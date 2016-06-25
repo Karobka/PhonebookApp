@@ -75,7 +75,7 @@ $(document).ready(function() {
     });
 
     //run this function on clicking the add contact button
-    $("#addcontact").click(function(event){
+    $(".form-horizontal").submit(function(event){
         event.preventDefault();
         //define variables for the input values
         var submittedFirstName = $("#firstname").val();
@@ -86,10 +86,8 @@ $(document).ready(function() {
         //define a variable that runs the new contact object constructor with the arguments of the person's info passed in.
         var newContact = new Contact(submittedFirstName, submittedLastName, submittedTelephone, submittedEmailAddress);
         
-        //do not allow blank name fields
-        if (submittedFirstName == "" || submittedLastName == "") {
-            alert("Please enter a first and last name");
-        }else {
+        
+            
             
             //for each new address div define these variables for the given values
             $(".new-address, .new-address-extra").each(function() {
@@ -121,11 +119,16 @@ $(document).ready(function() {
                 $("#detail-email").text(newContact.emailAddress);
             });
 
-
             //clear form inputs and extra address fields
-            $("input").val("");
+            function resetmyforms(forminputs) {
+                $(forminputs).val("");
+            }
+            resetmyforms("#firstname, #lastname, #telephone, #emailaddress, .new-addressline1, .new-addressline2, .new-city, .new-stateregion, .new-postalcode, .new-country");
+
+            
+            //Revmove extra address fields
             $(".new-address-extra").remove();
-        }
+        
 
     });
 
