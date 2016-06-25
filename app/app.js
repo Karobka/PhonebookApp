@@ -121,17 +121,9 @@ $(document).ready(function() {
                 $("#detail-email").text(newContact.emailAddress);
             });
 
-            //clear form inputs
-            $("#firstname").val("");
-            $("#lastname").val("");
-            $(".new-addressline1").val("");
-            $(".new-addressline2").val("");
-            $(".new-city").val("");
-            $(".new-stateregion").val("");
-            $(".new-postalcode").val("");
-            $(".new-country").val("");
-            $("#telephone").val("");
-            $("#emailaddress").val("");
+
+            //clear form inputs and extra address fields
+            $("input").val("");
             $(".new-address-extra").remove();
         }
 
