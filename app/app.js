@@ -34,7 +34,7 @@ $(document).ready(function() {
     $("#addanotheraddress").click(function(event){
         event.preventDefault();
         $("#new-addresses").append(
-            "<div class='new-address'>" + 
+            "<div class='new-address-extra'>" + 
                 "<hr>" +
                 "<div class='form-group'>" +
                 "<label class='control-label col-sm-2' for='new-addressline1'>Address:</label>" +
@@ -92,7 +92,7 @@ $(document).ready(function() {
         }else {
             
             //for each new address div define these variables for the given values
-            $(".new-address").each(function() {
+            $(".new-address, .new-address-extra").each(function() {
                 var submittedAddressLine1 = $(this).find(".new-addressline1").val();
                 var submittedAddressLine2 = $(this).find(".new-addressline2").val();
                 var submittedCity = $(this).find(".new-city").val();
@@ -133,7 +133,7 @@ $(document).ready(function() {
             $(".new-country").val("");
             $("#telephone").val("");
             $("#emailaddress").val("");
-            $(".new-addresses").remove();
+            $(".new-address-extra").remove();
         }
 
     });
