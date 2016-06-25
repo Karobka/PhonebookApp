@@ -106,12 +106,11 @@ $(document).ready(function() {
             });
         
             //append the new contacts first and last names to the list
-            $("#contactslist").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>" );
+            $("#contactslist").append("<li><button class='contact btn btn-info'>" + newContact.fullName() + "</button></li>" );
             console.log(newContact);
 
             $(".contact").last().click(function() {
-                $("#contactdetails").show();
-                $("#contactdetails h2").text(newContact.fullName());
+                $("#contactdetails h3").text(newContact.fullName());
                 $("#detail-firstname").text(newContact.firstName);
                 $("#detail-lastname").text(newContact.lastName);
                 $("#moreaddresses").text("");
